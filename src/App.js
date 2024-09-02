@@ -11,7 +11,7 @@ function WeatherApp() {
 
   // Função para buscar dados da API
   const fetchWeatherData = async (city) => {
-    const apiKey = "SUA_API_KEY"; // Substitua pela sua chave da API do OpenWeatherMap
+    const apiKey = "3ee32176fbc4070662893138e0e9dea6"; // Substitua pela sua chave da API do OpenWeatherMap
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
     try {
@@ -60,7 +60,7 @@ function WeatherApp() {
 
   return (
     <div className={`app ${getBackgroundClass()}`}>
-      <h1>Weather App</h1>
+      <h1>Aplicativo de Clima</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -68,14 +68,14 @@ function WeatherApp() {
           onChange={(e) => setCity(e.target.value)}
           placeholder="Enter city name"
         />
-        <button type="submit">Get Weather</button>
+        <button type="submit">Ver clima</button>
       </form>
       {error && <p className="error">{error}</p>}
       {weatherData && (
         <div className="weather-info">
           <h2>{weatherData.name}</h2>
-          <p>Temperature: {weatherData.main.temp}°C</p>
-          <p>Condition: {weatherData.weather[0].description}</p>
+          <p>Temperatura: {weatherData.main.temp}°C</p>
+          <p>Condição: {weatherData.weather[0].description}</p>
           <div className="weather-icon">{getWeatherIcon()}</div>
         </div>
       )}
